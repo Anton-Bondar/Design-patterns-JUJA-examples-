@@ -1,0 +1,9 @@
+// yuml.me
+[Client{bg:yellow}]
+[AbstractObject|+request(){bg:violet}]
+[ConcreteObject|+request(){bg:red}]
+[NullObject|+request(){bg:red}]
+[note: do nothing{bg:cornsilk}]-.-[NullObject]
+[AbstractObject]^-.-[ConcreteObject]
+[AbstractObject]^-.-[NullObject]
+[Client]use-.->[AbstractObject]

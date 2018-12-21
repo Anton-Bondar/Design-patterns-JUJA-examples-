@@ -1,0 +1,8 @@
+// yuml.me
+
+[Component|operation();add(c:Component);remove(c:Component);get(index:int{bg:violet}):Component]
+[note:  for all c in children c.operation() {bg:cornsilk}]-.-[Composite]
+[Leaf|operation(){bg:green}]-^[Component]
+[Composite|operation();add(c:Component);remove(c:Component);get(index:int):Component{bg:blue}]-^[Component]
+[Composite]<>->[Component]
+[Client{bg:yellow}]->[Component]

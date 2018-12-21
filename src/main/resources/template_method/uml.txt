@@ -1,0 +1,8 @@
+[Client{bg:yellow}]use->[ConcreteClassA]
+[Client]use->[ConcreteClassB]
+[AbstractClass|+templateMethod();#algorithm1();#algorithm2();#algorithm3();#algorithm4(){bg:violet}]
+[ConcreteClassA|#algorithm1();#algorithm2();#algorithm3();#algorithm4(){bg:red}]
+[ConcreteClassB|#algorithm1();#algorithm2();#algorithm3();#algorithm4(){bg:green}]
+[note:    ...     algorithm1()     ...     algorithm2()     ...     algorithm3()     ...     algorithm4()   ... {bg:cornsilk}]templateMethod()-.-[AbstractClass]
+[ConcreteClassA]extends-^[AbstractClass]
+[ConcreteClassB]extends-^[AbstractClass]

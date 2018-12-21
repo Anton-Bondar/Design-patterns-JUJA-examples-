@@ -1,0 +1,10 @@
+%2F%2F Cool Class Diagram
+[Client{bg:yellow}]use ->[Iterator]
+[Client]use ->[Aggregate]
+[note: return new ConcreteIterator(this) {bg:cornsilk}]-.-[ConcreteAggregate]
+[Aggregate|+CreateIterator():Iterator{bg:violet}]
+[ConcreteAggregate|+CreateIterator():Iterator{bg:green}]impl -.-^[Aggregate]
+[ConcreteIterator|+First();+Next();+IsDone():boolean;+CuttentItem():T{bg:red}]use ->[ConcreteAggregate]
+[ConcreteAggregate] new-.->[ConcreteIterator]
+[Iterator|+First();+Next();+IsDone():boolean;+CuttentItem():T{bg:violet}]
+[ConcreteIterator]impl -.-^[Iterator]

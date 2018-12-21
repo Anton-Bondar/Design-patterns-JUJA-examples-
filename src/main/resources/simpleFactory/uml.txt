@@ -1,0 +1,14 @@
+// yuml.me
+
+[Client{bg:yellow}]
+[AbstractProduct{bg:violet}]
+[ConcreteProductB{bg:green}]
+[ConcreteProductA{bg:blue}]
+[ProductFactory|+createProduct(t:Type):Product{bg:red}]
+[note: Produces different subclasses of products{bg:cornsilk}]-.-[ProductFactory]
+
+[Client]->[AbstractProduct]
+[Client]->[ProductFactory]
+[ConcreteProductA]-.-^[AbstractProduct]
+[ConcreteProductB]-.-^[AbstractProduct]
+[ProductFactory]-.->[AbstractProduct]

@@ -1,0 +1,11 @@
+// yuml.me
+
+[Invoker{bg:red}]<>->[Command]
+[Command|+execute(){bg:violet}]
+[Client{bg:yellow}]->[Receiver{bg:blue}]
+[Client]->[ConcreteCommand|-receiver:Receiver|+execute(){bg:green}]
+[Receiver|+action()]
+[ConcreteCommand]->[Receiver]
+[ConcreteCommand]
+[ConcreteCommand]-^[Command]
+[note:  receiver.action() {bg:cornsilk}]-.-[ConcreteCommand]

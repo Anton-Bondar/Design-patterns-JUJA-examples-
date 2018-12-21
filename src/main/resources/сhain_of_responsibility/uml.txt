@@ -1,0 +1,13 @@
+\\ http:\\yuml.me
+
+[Handler|-successor:Handler|+setSuccessor(h:Handler);+handleRequest(o:Request){bg:violet}]
+[ConcreteHandler1|+handleRequest(o:Request){bg:green}]
+[ConcreteHandler2|+handleRequest(o:Request){bg:red}]
+[Handler]successor<>-1>[Handler]
+[note:  if (successor!=null)   successor.handleRequest(request) {bg:cornsilk}]-.-[Handler]
+[Client{bg:yellow}]
+[ConcreteHandler1]extends-^[Handler]
+[ConcreteHandler2]extends-^[Handler]
+[Client]use->[Handler]
+[Client]create->[ConcreteHandler1]
+[Client]create->[ConcreteHandler2]

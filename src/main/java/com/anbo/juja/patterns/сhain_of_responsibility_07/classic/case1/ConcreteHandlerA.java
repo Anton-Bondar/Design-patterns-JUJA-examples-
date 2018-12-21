@@ -1,0 +1,17 @@
+package com.anbo.juja.patterns.сhain_of_responsibility_07.classic.case1;
+
+/**
+ * Created by oleksandr.baglai on 24.09.2015.
+ */
+// обработчик специализирующийся на Boolean
+public class ConcreteHandlerA extends Handler  {
+
+    @Override
+    public void handleRequest(Request request){
+        if (request.getMessage() instanceof Boolean) {
+            System.out.printf("Request %s processed by ConcreteHandlerA\n", request);
+        } else if (successor != null) {
+            successor.handleRequest(request);
+        }
+    }
+}

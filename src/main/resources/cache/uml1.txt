@@ -1,0 +1,11 @@
+// yuml.me
+[Client{bg:yellow}]
+[Cache|-data:Map(Key_Resource)|+get(k:Key):Resource{bg:blue}]
+[Provider|+get(k:Key):Resource{bg:green}]
+[Resource{bg:red}]
+[Client]->[Cache]
+[Cache]get if not contain->[Provider]
+[Client]use->[Resource]
+[Cache]save->[Resource]
+[Provider]provide->[Resource]
+[note: get_rsource_from_cache;otherwise_call_provider{bg:cornsilk}]-.-[Cache]

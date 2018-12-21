@@ -1,0 +1,23 @@
+// yuml.me
+
+[Client{bg:yellow}]
+[Product{bg:violet}]
+[ConcreteCreatorA|+factoryMethod():Product{bg:red}]
+[ConcreteCreatorB|+factoryMethod():Product{bg:blue}]
+[ConcreteProductA{bg:pink}]
+[ConcreteProductB{bg:lightskyblue}]
+[Creator|#factoryMethod():Product;+anOperation(){bg:violet}]
+
+[note: anOperation: product = factoryMethod();{bg:cornsilk}]-.-[Creator]
+[note: return new ConcreteProductA();{bg:cornsilk}]-.-[ConcreteCreatorA]
+[note: return new ConcreteProductB();{bg:cornsilk}]-.-[ConcreteCreatorB]
+
+[Creator]->[Product]
+[Client]->[Product]
+[Client]->[Creator]
+[ConcreteProductA]-.-^[Product]
+[ConcreteProductB]-.-^[Product]
+[ConcreteCreatorA]-^[Creator]
+[ConcreteCreatorB]-^[Creator]
+[ConcreteCreatorA]create->[ConcreteProductA]
+[ConcreteCreatorB]create->[ConcreteProductB]

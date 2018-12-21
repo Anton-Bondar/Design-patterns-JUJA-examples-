@@ -1,0 +1,11 @@
+// yuml.me
+
+[Client{bg:yellow}]use->[Abstraction]
+[Client]use->[Implementor]
+[Implementor|operationImpl(char){bg:violet}]
+[Abstraction|-Implementor implementor|+operation(String);+operation(char);+operation(int);+operation(boolean){bg:violet}]contains/delegates<>->[Implementor]
+[RedefinedAbstractionС|+operation(String){bg:blue}]extends-^[Abstraction]
+[RedefinedAbstractionВ|+operation(String){bg:blue}]extends-^[Abstraction]
+[note:  implementor.operationImpl(char) {bg:cornsilk}]-.-[Abstraction]
+[ConcreteImplementorA|operationImpl(char){bg:red}]extends-^[Implementor]
+[ConcreteImplementorB|operationImpl(char){bg:green}]extends-^[Implementor]

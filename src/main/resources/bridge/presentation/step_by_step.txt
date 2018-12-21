@@ -1,0 +1,152 @@
+-------------------------
+// 1
+
+[Client{bg:yellow}]use->[AbstractionA]
+[AbstractionA|+operation(char){bg:violet}]
+[RedefinedAbstractionD|+operation(String){bg:blue}]extends-^[AbstractionA]
+[RedefinedAbstractionC|+operation(String){bg:blue}]extends-^[AbstractionA]
+
+-------------------------
+// 2
+
+[Client{bg:yellow}]use->[AbstractionA]
+[Client{bg:yellow}]use->[AbstractionB]
+[AbstractionB|+operation(char){bg:violet}]
+[AbstractionA|+operation(char){bg:violet}]
+[RedefinedAbstractionD|+operation(String){bg:blue}]extends-^[AbstractionB]
+[RedefinedAbstractionC|+operation(String){bg:blue}]extends-^[AbstractionB]
+[RedefinedAbstractionD|+operation(String){bg:blue}]extends-^[AbstractionA]
+[RedefinedAbstractionC|+operation(String){bg:blue}]extends-^[AbstractionA]
+
+-------------------------
+// 3 
+
+[Client{bg:yellow}]use->[AbstractionA]
+[Client{bg:yellow}]use->[AbstractionB]
+[AbstractionB|+operation(char){bg:violet}]
+[AbstractionA|+operation(char){bg:violet}]
+[RedefinedAbstractionDB|+operation(String){bg:blue}]extends-^[AbstractionB]
+[RedefinedAbstractionCB|+operation(String){bg:blue}]extends-^[AbstractionB]
+[RedefinedAbstractionDA|+operation(String){bg:blue}]extends-^[AbstractionA]
+[RedefinedAbstractionCA|+operation(String){bg:blue}]extends-^[AbstractionA]
+
+--------------------------
+// 4
+
+[AbstractionC|+operation(char){bg:violet}]
+[AbstractionB|+operation(char){bg:violet}]
+[AbstractionA|+operation(char){bg:violet}]
+[RedefinedAbstractionDC|+operation(String){bg:blue}]extends-^[AbstractionC]
+[RedefinedAbstractionCC|+operation(String){bg:blue}]extends-^[AbstractionC]
+[RedefinedAbstractionDB|+operation(String){bg:blue}]extends-^[AbstractionB]
+[RedefinedAbstractionCB|+operation(String){bg:blue}]extends-^[AbstractionB]
+[RedefinedAbstractionDA|+operation(String){bg:blue}]extends-^[AbstractionA]
+[RedefinedAbstractionCA|+operation(String){bg:blue}]extends-^[AbstractionA]
+[Client{bg:yellow}]use->[AbstractionA]
+[Client{bg:yellow}]use->[AbstractionB]
+[Client{bg:yellow}]use->[AbstractionC]
+
+-----------------------------
+// 5 
+
+[Client{bg:yellow}]use->[Abstraction]
+[Abstraction|+operation(char){bg:violet}]
+[RedefinedAbstractionD|+operation(String){bg:blue}]extends-^[Abstraction]
+[RedefinedAbstractionC|+operation(String){bg:blue}]extends-^[Abstraction]
+
+------------------------------
+// 6
+
+[Implementor|+operationImpl(char){bg:violet}]
+[Client{bg:yellow}]use->[Abstraction]
+[Client{bg:yellow}]use->[Implementor]
+[Abstraction|+operation(char){bg:violet}]
+[RedefinedAbstractionD|+operation(String){bg:blue}]extends-^[Abstraction]
+[RedefinedAbstractionC|+operation(String){bg:blue}]extends-^[Abstraction]
+
+-------------------------------
+// 7
+
+[Client{bg:yellow}]use->[Abstraction]
+[Client{bg:yellow}]use->[Implementor]
+[Implementor|+operationImpl(char){bg:violet}]
+[Abstraction|-Implementor implementor|+operation(char){bg:violet}]  delegates<>->[Implementor]
+[RedefinedAbstractionD|+operation(String){bg:blue}]extends-^[Abstraction]
+[RedefinedAbstractionC|+operation(String){bg:blue}]extends-^[Abstraction]
+
+------------------------
+// 8
+
+[Client{bg:yellow}]use->[Abstraction]
+[Client{bg:yellow}]use->[Implementor]
+[Implementor|+operationImpl(char){bg:violet}]
+[Abstraction|-Implementor implementor|+operation(char){bg:violet}]  delegates<>->[Implementor]
+[RedefinedAbstractionD|+operation(String){bg:blue}]extends-^[Abstraction]
+[RedefinedAbstractionC|+operation(String){bg:blue}]extends-^[Abstraction]
+[note:  implementor.operationImpl(char) {bg:cornsilk}]-.-[Abstraction]
+
+-------------------------
+// 9 
+
+[Client{bg:yellow}]use->[Abstraction]
+[Client{bg:yellow}]use->[Implementor]
+[Implementor|+operationImpl(char){bg:violet}]
+[Abstraction|-Implementor implementor|+operation(char){bg:violet}]  delegates<>->[Implementor]
+[RedefinedAbstractionD|+operation(String){bg:blue}]extends-^[Abstraction]
+[RedefinedAbstractionC|+operation(String){bg:blue}]extends-^[Abstraction]
+[note:  implementor.operationImpl(char) {bg:cornsilk}]-.-[Abstraction]
+[ConcreteImplementorA|operationImpl(char){bg:green}]extends-^[Implementor]
+
+-------------------------
+// 10
+
+[Client{bg:yellow}]use->[Abstraction]
+[Client{bg:yellow}]use->[Implementor]
+[Implementor|+operationImpl(char){bg:violet}]
+[Abstraction|-Implementor implementor|+operation(char){bg:violet}]  delegates<>->[Implementor]
+[RedefinedAbstractionD|+operation(String){bg:blue}]extends-^[Abstraction]
+[RedefinedAbstractionC|+operation(String){bg:blue}]extends-^[Abstraction]
+[note:  implementor.operationImpl(char) {bg:cornsilk}]-.-[Abstraction]
+[ConcreteImplementorB|operationImpl(char){bg:red}]extends-^[Implementor]
+[ConcreteImplementorA|operationImpl(char){bg:green}]extends-^[Implementor]
+
+--------------------------
+// 11
+
+[Client{bg:yellow}]use->[Abstraction]
+[Client{bg:yellow}]use->[Implementor]
+[Implementor|+operationImpl(char){bg:violet}]
+[Abstraction|-Implementor implementor|+operation(char){bg:violet}]  delegates<>->[Implementor]
+[RedefinedAbstractionE|+operation(String){bg:blue}]extends-^[Abstraction]
+[RedefinedAbstractionD|+operation(String){bg:blue}]extends-^[Abstraction]
+[RedefinedAbstractionC|+operation(String){bg:blue}]extends-^[Abstraction]
+[note:  implementor.operationImpl(char) {bg:cornsilk}]-.-[Abstraction]
+[ConcreteImplementorB|operationImpl(char){bg:red}]extends-^[Implementor]
+[ConcreteImplementorA|operationImpl(char){bg:green}]extends-^[Implementor]
+
+
+------------------------------
+// 12 
+[Client{bg:yellow}]use->[Abstraction]
+[Client{bg:yellow}]use->[Implementor]
+[Implementor|+operationImpl(char){bg:violet}]
+[Abstraction|-Implementor implementor|+operation(char){bg:violet}]  delegates<>->[Implementor]
+[RedefinedAbstractionE|+operation(String){bg:blue}]extends-^[Abstraction]
+[RedefinedAbstractionD|+operation(String){bg:blue}]extends-^[Abstraction]
+[RedefinedAbstractionC|+operation(String){bg:blue}]extends-^[Abstraction]
+[note:  implementor.operationImpl(char) {bg:cornsilk}]-.-[Abstraction]
+[ConcreteImplementorF|operationImpl(char){bg:yellow}]extends-^[Implementor]
+[ConcreteImplementorB|operationImpl(char){bg:red}]extends-^[Implementor]
+[ConcreteImplementorA|operationImpl(char){bg:green}]extends-^[Implementor]
+
+-------------------------------
+
+[Client{bg:yellow}]use->[Abstraction]
+[Client]use->[Implementor]
+[Implementor|+operationImpl(char){bg:violet}]
+[Abstraction|-Implementor implementor|+operation(String);+operation(char);+operation(int);+operation(boolean){bg:violet}]contains/delegates<>->[Implementor]
+[RedefinedAbstractionС|+operation(String){bg:blue}]extends-^[Abstraction]
+[RedefinedAbstractionВ|+operation(String){bg:blue}]extends-^[Abstraction]
+[note:  implementor.operationImpl(char) {bg:cornsilk}]-.-[Abstraction]
+[ConcreteImplementorA|operationImpl(char){bg:red}]extends-^[Implementor]
+[ConcreteImplementorB|operationImpl(char){bg:green}]extends-^[Implementor]

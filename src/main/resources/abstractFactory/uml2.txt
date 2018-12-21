@@ -1,0 +1,41 @@
+// yuml.me
+
+[Product1{bg:violet}]
+[Product2{bg:violet}]
+
+[ConcreteFactoryA|+createProduct1():Product1;+createProduct2():Product2{bg:red}]
+[ConcreteFactoryB|+createProduct1():Product1;+createProduct2():Product2{bg:blue}]
+
+[ConcreteProductA1{bg:pink}]
+[ConcreteProductA2{bg:pink}]
+
+[ConcreteProductB1{bg:lightskyblue}]
+[ConcreteProductB2{bg:lightskyblue}]
+
+[AbstractFactory|+createProduct1():Product1;+createProduct2():Product2{bg:violet}]
+
+[note: return new ConcreteProductA1();|return new ConcreteProductA2();{bg:cornsilk}]-.-[ConcreteFactoryA]
+[note: return new ConcreteProductB1();|return new ConcreteProductB2();{bg:cornsilk}]-.-[ConcreteFactoryB]
+
+[AbstractFactory]->[Product1]
+[AbstractFactory]->[Product2]
+
+[ConcreteProductA1]-.-^[Product1]
+[ConcreteProductA2]-.-^[Product2]
+
+[ConcreteProductB1]-.-^[Product1]
+[ConcreteProductB2]-.-^[Product2]
+
+[ConcreteFactoryA]-^[AbstractFactory]
+[ConcreteFactoryB]-^[AbstractFactory]
+
+[ConcreteFactoryA]create->[ConcreteProductA1]
+[ConcreteFactoryA]create->[ConcreteProductA2]
+
+[ConcreteFactoryB]create->[ConcreteProductB1]
+[ConcreteFactoryB]create->[ConcreteProductB2]
+
+[Client{bg:yellow}]
+[Client]->[Product1]
+[Client]->[Product2]
+[Client]->[AbstractFactory]

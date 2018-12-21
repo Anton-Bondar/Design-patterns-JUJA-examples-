@@ -1,0 +1,8 @@
+[Client{bg:yellow}]use ->[Director]
+[Client]use ->[Builder]
+[note: for all objects in structure builder.buildPart() {bg:cornsilk}]-.-[Director]
+[Director|-builder:Builder|+construct();+getProduct():Product{bg:green}]
+[Builder|#buildPart1();#buildPart2();#buildPart3();+getReuslt():Product{bg:violet}]
+[ConcreteBuilder|+buildPart1();+buildPart2();+buildPart3(){bg:red}]create->[Product{bg:blue}]
+[Builder]^-ext[ConcreteBuilder]
+[Director]++-1>[Builder]

@@ -1,0 +1,15 @@
+%2F%2F http:%2F%2Fyuml.me%2Fdiagram%2Fscruffy%2Fclass%2F
+[Observable|+AddObserver(o:Observer);+RemoveObserver(o:Observer);+NotifyObservers(){bg:violet}]
+[ConcreteObservable|-observers:ObserverII|+AddObserver(o:Observer);+RemoveObserver(o:Observer);+NotifyObservers(){bg:green}]
+[Observer|+HandleEvent(){bg:violet}]
+[ConcreteObserver1|+HandleEvent(){bg:blue}]
+[ConcreteObserver2|+HandleEvent(){bg:red}]
+[note: Call method HandleEvent() for all Observers {bg:cornsilk}]-.-[ConcreteObservable]
+[Client{bg:yellow}]
+
+[ConcreteObservable]impl-.-^[Observable]
+[ConcreteObserver1]impl-.-^[Observer]
+[ConcreteObserver2]impl-.-^[Observer]
+[ConcreteObservable]<>1->0..*[Observer]
+[Client]use->[Observable]
+[Client]use->[Observer]
